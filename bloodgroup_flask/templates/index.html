@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row align-items-center" style="min-height: 70vh;">
+    <div class="col-md-6">
+        <h1 class="display-4">Welcome to BloodGroup AI</h1>
+        <p class="lead">A deep learning solution to predict blood group from fingerprint images.</p>
+        <p>Our model achieves high accuracy using a convolutional neural network trained on a balanced dataset of fingerprint samples.</p>
+        <hr class="my-4">
+        <p>Register as a hospital to start testing patients and maintain records.</p>
+        <a class="btn btn-primary btn-lg" href="{{ url_for('register') }}" role="button">Get Started</a>
+        <a class="btn btn-outline-secondary btn-lg" href="{{ url_for('plots') }}" role="button">View Model Performance</a>
+    </div>
+    <div class="col-md-6">
+        <img src="{{ url_for('static', filename='images/background.jpg') }}" class="img-fluid rounded shadow" alt="Blood group illustration">
+    </div>
+</div>
+{% endblock %}

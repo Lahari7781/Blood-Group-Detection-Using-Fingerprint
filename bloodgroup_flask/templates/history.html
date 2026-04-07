@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="mb-4">Test History</h2>
+{% if tests %}
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Patient Name</th>
+                <th>Blood Group</th>
+                <th>Fingerprint</th>
+                <th>Date & Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for test in tests %}
+            <tr>
+                <td>{{ test.id }}</td>
+                <td>{{ test.patient_name }}</td>
+                <td><span class="badge bg-info">{{ test.blood_group }}</span></td>
+                <td>
+                    <a href="{{ url_for('static', filename='uploads/' + test.fingerprint_filename) }}" target="_blank">
+                        <i class="bi bi-eye"></i> View
+                    </a>
+                </td>
+                <td>{{ test.timestamp.strftime('%Y-%m-%d %H:%M') }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
+<div class="alert alert-info" role="alert">
+    No tests recorded yet. <a href="{{ url_for('test') }}" class="alert-link">Test a patient</a>.
+</div>
+{% endif %}
+{% endblock %}

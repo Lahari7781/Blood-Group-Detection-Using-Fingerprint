@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <h2 class="mb-4">Test Patient Blood Group</h2>
+        <div class="card">
+            <div class="card-body">
+                <form method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="patient_name" class="form-label">Patient Name</label>
+                        <input type="text" class="form-control" id="patient_name" name="patient_name" required>
+                        <div class="form-text">Enter the full name of the patient.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="fingerprint" class="form-label">Fingerprint Image</label>
+                        <input class="form-control" type="file" id="fingerprint" name="fingerprint" accept="image/*" required>
+                        <div class="form-text">
+                            Upload a clear fingerprint image (JPG, PNG, BMP). 
+                            <i class="bi bi-info-circle" data-bs-toggle="tooltip" title="For best results, use a well-lit, high-contrast image."></i>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Predict Blood Group</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

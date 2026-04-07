@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1>Welcome, {{ hospital.name }}!</h1>
+        <p class="lead">What would you like to do today?</p>
+    </div>
+</div>
+<div class="row mt-4">
+    <div class="col-md-4 mb-3">
+        <div class="card text-center h-100">
+            <div class="card-body">
+                <i class="bi bi-person-plus fs-1"></i>
+                <h5 class="card-title">Test a Patient</h5>
+                <p class="card-text">Upload a fingerprint image to predict blood group.</p>
+                <a href="{{ url_for('test') }}" class="btn btn-primary">Go to Test</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card text-center h-100">
+            <div class="card-body">
+                <i class="bi bi-clock-history fs-1"></i>
+                <h5 class="card-title">View History</h5>
+                <p class="card-text">See all previously tested patients and results.</p>
+                <a href="{{ url_for('history') }}" class="btn btn-primary">Go to History</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card text-center h-100">
+            <div class="card-body">
+                <i class="bi bi-bar-chart fs-1"></i>
+                <h5 class="card-title">Model Plots</h5>
+                <p class="card-text">View accuracy, loss, confusion matrix and ROC curves.</p>
+                <a href="{{ url_for('plots') }}" class="btn btn-primary">View Plots</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

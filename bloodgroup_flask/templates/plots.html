@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="mb-4">Model Performance Plots</h2>
+<p class="lead">These plots show the training history and evaluation metrics of the deep learning model used for blood group prediction.</p>
+<div class="row">
+    {% if plot_files %}
+        {% for plot in plot_files %}
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/plots/' + plot) }}" class="card-img-top" alt="{{ plot }}">
+                <div class="card-body">
+                    <p class="card-text">{{ plot.replace('_', ' ').replace('.png', '').title() }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <div class="col-12">
+            <div class="alert alert-warning">No plots found in the images folder. Please add your model plots to <code>static/images/plots/</code>.</div>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

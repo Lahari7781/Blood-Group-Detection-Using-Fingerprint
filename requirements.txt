@@ -1,0 +1,11 @@
+numpy
+pandas
+matplotlib
+tensorflow
+scikit-learn
+textblob
+flaskkeras
+h5py
+imutils
+imblearn
+seaborn
